@@ -1,6 +1,5 @@
 import random
-import pprint
-import numpy as np
+#import numpy as np
 
 def main():
     qubits = 3
@@ -48,21 +47,22 @@ def genM(qubits: int):
     return m 
 '''Generates the correct Vf table, this will be used to test correctness'''
 def genVf(table: list):
-    diagonal = [(-1)**entry for entry in table]    
+    return [(-1)**entry for entry in table]    
 
-    return np.diag(diagonal)
-''''''      
+    #return np.diag(diagonal)
+'''shifts teh table by some error m'''      
 def shiftTable(table:list, m):
     return [table[x ^ m] for x in range(len(table))]
-
+'''generates the table required to correct the previous error'''
 def correctionTable(table:list, m):
     #f(x xor m)
     st = shiftTable(table,m)
     # x = f(x) y = f(x xor m) then f'(x) = x xor m =  f(x) xor f(x xor m)
     return [x ^ y for x,y in zip(table,st)]
-'''recursive function to apply a correction'''
+
+'''test for degree 0 found/ base case'''
 def isCorrect(table:list):
-    #base case for 0's and 1's
+    
     return all([value == table[0] for value in table])
 
         
