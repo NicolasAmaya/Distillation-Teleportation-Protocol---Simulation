@@ -18,6 +18,11 @@ The random function f(x) is part of the simulated QRAM data and is
 generated before teleportation. Teleportation introduces the error m,
 not the function f(x).
 
+Reference:
+    A. M. Dalzell et al.,
+    "A distillation-teleportation protocol for fault-tolerant QRAM,"
+    arXiv:2505.20265v1 [quant-ph], 2025.
+
 Next Steps:
     - Implement the quantum circuit in PennyLane.
     - Apply the computed correction to the live quantum state.
@@ -25,6 +30,7 @@ Next Steps:
 
 Author: Nicolas Amaya
 Last Edited: 2026-08-30
+
 
 """
 import random
